@@ -13,14 +13,14 @@ const app = express();
 const port = process.env.PORT || 4000 ;
 
 //Mongodb
-(async () => { connectDB() })()
+(async () => {await connectDB() })()
 connectCloudinary() 
 
-const alloedOrigin = [ 'http://localhost:5173' , 'http://localhost:5174' ]
+const allowedOrigin = [ 'http://localhost:5173' , 'http://localhost:5174' ]
 
 //middleware
 app.use(express.json())
-app.use(cors({credentials : true, origin : alloedOrigin}))
+app.use(cors({credentials : true, origin : allowedOrigin}))
 
 // api end point
 app.get('/', (req,res) => {
